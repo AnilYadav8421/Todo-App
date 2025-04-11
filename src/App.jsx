@@ -1,10 +1,15 @@
 import React from 'react'
+import TodoInput from './components/TodoInput'
+import TodoList from './components/TodoList'
 
 const App = () => {
   return (
-    <div>
-      <h1 className='text-2xl font-bold'>Hello, my name is anil</h1>
-    </div>
+      <div className='flex justify-center items-center h-screen flex-col '>
+        <div className='border-1 p-5 rounded-2xl'>
+        <TodoInput />
+        <TodoList />
+        </div>
+      </div>
   )
 }
 
