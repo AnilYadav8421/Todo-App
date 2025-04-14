@@ -15,7 +15,7 @@ const TodoInput = ({addTask}) => {
         </div>
         <div className="mb-4 bg-gray-200 rounded-2xl pr-3">
             <input className=' px-3 p-2 outline-0 text-sm' type="text" placeholder='Write task..' onChange={(e)=>setTaskText(e.target.value)} value={taskText}/>
-            <button className='text-xs bg-black text-white rounded-2xl p-1 px-2' onClick={handleClick}>Add Task</button>
+            <button className='text-xs bg-black text-white rounded-2xl p-1 px-2 cursor-pointer' onClick={handleClick}>Add Task</button>
         </div>
     </div>
   )
