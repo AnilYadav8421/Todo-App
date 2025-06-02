@@ -1,24 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const TodoInput = ({addTask}) => {
-  const [taskText, setTaskText] = useState("");
-  const handleClick = () =>{
-    if(taskText.trim()){
-      addTask(taskText),
-      setTaskText('');
+const TodoInput = ({ addTask, darkMode }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim() !== '') {
+      addTask(inputValue.trim());
+      setInputValue('');
     }
-  }
-  return (
-    <div>
-        <div className="font-bold text-2xl mb-2">
-            <h1>Todo List</h1>
-        </div>
-        <div className="mb-4 bg-gray-200 rounded-2xl pr-3">
-            <input className=' px-3 p-2 outline-0 text-sm' type="text" placeholder='Write task..' onChange={(e)=>setTaskText(e.target.value)} value={taskText}/>
-            <button className='text-xs bg-black text-white rounded-2xl p-1 px-2 cursor-pointer' onClick={handleClick}>Add Task</button>
-        </div>
-    </div>
-  )
-}
+  };
 
-export default TodoInput
+  return (
+    <form onSubmit={handleSubmit} className="flex gap-2">
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Enter a task"
+        className={`w-full px-3 py-2 rounded border outline-none transition
+          ${darkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white border-gray-300'}`}
+      />
+      <button
+        type="submit"
+        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+      >
+        Add
+      </button>
+    </form>
+  );
+};
+
+export default TodoInput;
